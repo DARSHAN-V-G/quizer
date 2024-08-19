@@ -13,10 +13,8 @@ connectDB();
 // Middleware
 app.use(express.json({ extended: false }));
 
-// Define Routes
 app.get('/', (req, res) => res.send('API Running'));
 
-// Use Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/quiz', quizRoutes);
 

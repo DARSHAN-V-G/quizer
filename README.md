@@ -20,3 +20,9 @@ An interactive quiz application where users can answer multiple-choice questions
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/your-username/interactive-quiz-app.git
+2. **Navigate to the project directory**:
+    ```bash
+    cd quizer
+3. **Install Backend dependencies**:
+   ```bash
+   npm install
