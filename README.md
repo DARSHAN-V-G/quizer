@@ -31,4 +31,4 @@ An interactive quiz application where users can answer multiple-choice questions
    npm run dev
 
 ## Basic implemention of Backend
-![Video Preview](quizer\quizer.gif)
+![Video Preview](quizer.gif)
