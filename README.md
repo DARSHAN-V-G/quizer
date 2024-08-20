@@ -12,7 +12,7 @@ An interactive quiz application where users can answer multiple-choice questions
 - **Backend**: Node.js (Express)
   - Handles API requests for quiz data and scoring logic.
   - Manages user sessions and quiz state.
-- **Frontend**: HTML, CSS, JavaScript (To be implemented)
+- **Frontend**: HTML, CSS, JavaScript, React
   - Will handle the user interface and interaction.
 
 ## Installation
@@ -31,4 +31,4 @@ An interactive quiz application where users can answer multiple-choice questions
    npm run dev
 
 ## Basic implemention of Backend
-![Video Preview](quizer\quizer.mkv)
+![Video Preview](quizer\quizer.gif)
