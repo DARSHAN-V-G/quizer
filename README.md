@@ -22,7 +22,11 @@ An interactive quiz application where users can answer multiple-choice questions
    git clone https://github.com/your-username/interactive-quiz-app.git
 2. **Navigate to the project directory**:
     ```bash
-    cd quizer
+    cd quizer\backend
 3. **Install Backend dependencies**:
    ```bash
    npm install
+4. **Run the Server**:
+   ```bash
+   npm run dev
+   
