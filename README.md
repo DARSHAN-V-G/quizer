@@ -29,4 +29,6 @@ An interactive quiz application where users can answer multiple-choice questions
 4. **Run the Server**:
    ```bash
    npm run dev
-   
+
+## Basic implemention of Backend
+![Video Preview](quizer\quizer.mkv)
