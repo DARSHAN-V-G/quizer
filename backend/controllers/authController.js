@@ -5,6 +5,22 @@ const User = require('../models/User');
 exports.register = async (req, res) => {
   const { name, email, password } = req.body;
 
+  // Validate input
+  if (!name || !email || !password) {
+    return res.status(400).json({ msg: 'Please enter all fields' });
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ msg: 'Invalid email format' });
+  }
+
+  // Validate password length
+  if (password.length < 6) {
+    return res.status(400).json({ msg: 'Password must be at least 6 characters' });
+  }
+
   try {
     let user = await User.findOne({ email });
     if (user) {
@@ -33,18 +49,32 @@ exports.register = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: 360000 },
       (err, token) => {
-        if (err) throw err;
+        if (err) {
+          console.error(err.message);
+          return res.status(500).json({ msg: 'Error signing token' });
+        }
         res.json({ token });
       }
     );
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ msg: 'Server error' });
   }
 };
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+
+  // Validate input
+  if (!email || !password) {
+    return res.status(400).json({ msg: 'Please enter all fields' });
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ msg: 'Invalid email format' });
+  }
 
   try {
     let user = await User.findOne({ email });
@@ -68,12 +98,15 @@ exports.login = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: 360000 },
       (err, token) => {
-        if (err) throw err;
+        if (err) {
+          console.error(err.message);
+          return res.status(500).json({ msg: 'Error signing token' });
+        }
         res.json({ token });
       }
     );
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ msg: 'Server error' });
   }
 };
